@@ -3,5 +3,16 @@ FILE_EXTENSION=$1
 for FILE_NAME in /Users/vikasbanage/randomimages/*.$FILE_EXTENSION
 do
    echo $FILE_NAME
-   /usr/local/bin/aws s3 cp $FILE_NAME  s3://cloudmagic-mixfiles/
+   if [ $FILE_EXTENSION -eq "pdf" ]
+   then
+        /usr/local/bin/aws s3 cp $FILE_NAME  s3://cloudmagic-pdf/
+   elif [ $FILE_EXTENSION -eq "csv" ]
+   then
+        /usr/local/bin/aws s3 cp $FILE_NAME  s3://cloudmagic-csv/
+   elif [ $FILE_EXTENSION -eq "jpeg" ]
+   then
+        /usr/local/bin/aws s3 cp $FILE_NAME  s3://clodumagic-images/
+   else
+        echo "No extension provided or file with extension not found."
+   fi               
 done   
