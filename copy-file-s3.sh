@@ -1,6 +1,6 @@
 #!/bin/sh
 FILE_EXTENSION=$1
-for FILE_NAME in /Users/vikasbanage/randomimages/*.$FILE_EXTENSION
+for FILE_NAME in <path-of-folder>/*.$FILE_EXTENSION
 do
    echo $FILE_NAME
    if [ $FILE_EXTENSION = "pdf" ]
